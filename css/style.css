@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400;600;800;900&display=swap");
+@import "reset.css";
+@import "variables.css";
+@import "components/date-time.css";
+@import "components/name-input.css";
+@import "components/greeting.css";
+
+body {
+    font-family: "Inconsolata", monospace;
+    height: calc(100vh - var(--footer-height));
+}
+
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    height: var(--footer-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hidden {
+    display: none;
+}
