@@ -1,0 +1,22 @@
+.clock,
+.date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.date {
+    margin-bottom: -10px;
+}
+
+.clock__text {
+    font-size: 100px;
+    font-weight: 600;
+    color: white;
+}
+
+.date__text {
+    font-size: 30px;
+    color: white;
+}
