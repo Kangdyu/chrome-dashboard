@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>My Dashboard</title>
-        <link rel="stylesheet" href="src/css/style.css" />
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
         <main>
@@ -12,7 +12,7 @@
                 <span class="date__text js-date"></span>
             </div>
             <div class="clock">
-                <span class="clock__text js-clock">12:34:56</span>
+                <span class="clock__text js-clock"></span>
             </div>
             <form class="form-name js-form">
                 <input
@@ -21,9 +21,13 @@
                     placeholder="Enter your name"
                 />
             </form>
+            <div class="greeting">
+                <span class="greeting__text js-greeting"></span>
+            </div>
         </main>
         <footer><address>2020 ⓒ Kangdyu</address></footer>
-        <script src="src/js/date-time.js"></script>
-        <script src="src/js/background.js"></script>
+        <script src="js/background.js"></script>
+        <script src="js/date-time.js"></script>
+        <script src="js/nickname.js"></script>
     </body>
 </html>
