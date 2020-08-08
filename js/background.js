@@ -6,7 +6,7 @@ function randomNumGenerator(max) {
 
 function paintBackground(num) {
     const image = new Image();
-    image.src = `images/${num}.jpg`;
+    image.src = `images/backgrounds/${num}.jpg`;
     image.classList.add("background-image");
     document.body.appendChild(image);
 }
