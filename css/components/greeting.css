@@ -1,6 +1,52 @@
+.greeting {
+    position: relative;
+    padding: 10px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.greeting__edit-icon {
+    position: absolute;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    display: none;
+}
+
+@keyframes hoverBgOpacity {
+    from {
+        background-color: rgba(255, 255, 255, 0);
+    }
+    to {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+@keyframes hoverIconOpacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.greeting:hover {
+    animation: hoverBgOpacity 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.greeting:hover .greeting__edit-icon {
+    display: inline;
+    animation: hoverIconOpacity 0.3s ease-in-out;
+}
+
 .greeting__text {
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 200;
     text-shadow: 2px 2px black;
 }

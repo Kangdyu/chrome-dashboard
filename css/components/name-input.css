@@ -1,14 +1,19 @@
 .form-name__input {
     border: none;
     font-size: 30px;
-    font-family: "Inconsolata", monospace;
-    font-weight: 400;
+    font-family: "Inconsolata", "Noto Sans KR", sans-serif;
+    font-weight: 200;
     text-align: center;
-    background: rgba(255, 255, 255, 0.4);
-    padding: 5px 0;
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: rgb(255, 255, 255);
+    padding: 9px 0;
+    border-radius: 50px;
 }
 
 .form-name__input::placeholder {
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-name__input:focus {
+    outline: none;
 }
