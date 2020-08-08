@@ -4,6 +4,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
 }
 
 .greeting__edit-icon {
@@ -12,14 +14,15 @@
     width: 30px;
     height: 30px;
     display: none;
+    fill: white;
 }
 
 @keyframes hoverBgOpacity {
     from {
-        background-color: rgba(255, 255, 255, 0);
+        background-color: rgba(0, 0, 0, 0.3);
     }
     to {
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(0, 0, 0, 0.5);
     }
 }
 
@@ -33,9 +36,7 @@
 }
 
 .greeting:hover {
-    animation: hoverBgOpacity 0.3s ease-in-out;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
+    animation: hoverBgOpacity 0.3s ease-in-out forwards;
     cursor: pointer;
 }
 
