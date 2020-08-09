@@ -1,0 +1,38 @@
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    color: white;
+}
+
+.calendar-icon,
+.todo-icon {
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-right: 20px;
+}
+
+.calendar-icon svg,
+.todo-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.calendar-icon:hover svg,
+.todo-icon:hover svg {
+    width: 40px;
+    height: 40px;
+}
+
+.selected {
+    background-color: rgba(150, 255, 0, 0.5);
+}
+.selected svg {
+    fill: white;
+}
