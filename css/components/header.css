@@ -18,21 +18,23 @@ header {
     margin-right: 20px;
 }
 
-.calendar-icon svg,
-.todo-icon svg {
+.calendar-icon:active,
+.todo-icon:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.calendar-icon img,
+.todo-icon img {
     width: 30px;
     height: 30px;
 }
 
-.calendar-icon:hover svg,
-.todo-icon:hover svg {
+.calendar-icon:hover img,
+.todo-icon:hover img {
     width: 40px;
     height: 40px;
 }
 
 .selected {
-    background-color: rgba(150, 255, 0, 0.5);
-}
-.selected svg {
-    fill: white;
+    background-color: rgba(46, 204, 113, 1);
 }

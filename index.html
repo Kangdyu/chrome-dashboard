@@ -9,57 +9,10 @@
     <body>
         <header>
             <button class="calendar-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <g data-name="Layer 2">
-                        <g data-name="calendar">
-                            <rect width="24" height="24" opacity="0" />
-                            <path
-                                d="M18 4h-1V3a1 1 0 0 0-2 0v1H9V3a1 1 0 0 0-2 0v1H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zM8 17a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm8 0h-4a1 1 0 0 1 0-2h4a1 1 0 0 1 0 2zm3-6H5V7a1 1 0 0 1 1-1h1v1a1 1 0 0 0 2 0V6h6v1a1 1 0 0 0 2 0V6h1a1 1 0 0 1 1 1z"
-                            />
-                        </g>
-                    </g>
-                </svg>
+                <img src="images/icons/calendar.svg" />
             </button>
             <button class="todo-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <g data-name="Layer 2">
-                        <g data-name="list">
-                            <rect
-                                width="24"
-                                height="24"
-                                transform="rotate(180 12 12)"
-                                opacity="0"
-                            />
-                            <circle cx="4" cy="7" r="1" />
-                            <circle cx="4" cy="12" r="1" />
-                            <circle cx="4" cy="17" r="1" />
-                            <rect
-                                x="7"
-                                y="11"
-                                width="14"
-                                height="2"
-                                rx=".94"
-                                ry=".94"
-                            />
-                            <rect
-                                x="7"
-                                y="16"
-                                width="14"
-                                height="2"
-                                rx=".94"
-                                ry=".94"
-                            />
-                            <rect
-                                x="7"
-                                y="6"
-                                width="14"
-                                height="2"
-                                rx=".94"
-                                ry=".94"
-                            />
-                        </g>
-                    </g>
-                </svg>
+                <img src="images/icons/list.svg" />
             </button>
         </header>
         <main>
@@ -77,39 +30,49 @@
                         placeholder="Enter your name"
                     />
                 </form>
-                <div class="greeting js-greeting">
-                    <!-- <img
-                    class="greeting__edit-icon"
-                    src="images/icons/edit-outline.svg"
-                /> -->
-                    <!-- use svg tag instead of using svg file 
-                    for changing color using css fill -->
-                    <svg
-                        class="greeting__edit-icon"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                    >
-                        <g data-name="Layer 2">
-                            <g data-name="edit">
-                                <rect width="24" height="24" opacity="0" />
-                                <path
-                                    d="M19.4 7.34L16.66 4.6A2 2 0 0 0 14 4.53l-9 9a2 2 0 0 0-.57 1.21L4 18.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 20h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71zM9.08 17.62l-3 .28.27-3L12 9.32l2.7 2.7zM16 10.68L13.32 8l1.95-2L18 8.73z"
-                                />
-                            </g>
-                        </g>
-                    </svg>
+                <div class="greeting js-greeting hidden">
+                    <img src="images/icons/edit-outline-white.svg" />
                     <span class="greeting__text"></span>
                 </div>
             </div>
             <div class="menu-container hidden">
-                <div class="calendar">calendar</div>
-                <div class="todo-list">todo-list</div>
+                <div class="calendar">
+                    <div class="calendar__header">Calendar</div>
+                </div>
             </div>
         </main>
+        <nav class="todo">
+            <div class="todo-header">
+                <span class="todo-header__text">
+                    TO-DO LIST
+                </span>
+                <form class="todo-form">
+                    <input type="text" placeholder="Enter new to-do" />
+                    <button>
+                        <img src="images/icons/plus-outline.svg" />
+                    </button>
+                </form>
+            </div>
+            <div class="todo-list">
+                <div class="todo-pending">
+                    <div class="todo-pending__title">
+                        <span>Ongoing</span>
+                    </div>
+                    <ul class="todo-pending__list"></ul>
+                </div>
+                <div class="todo-finished">
+                    <div class="todo-finished__title">
+                        <span>Finished</span>
+                    </div>
+                    <ul class="todo-finished__list"></ul>
+                </div>
+            </div>
+        </nav>
         <footer><address>2020 ⓒ Kangdyu</address></footer>
         <script src="js/background.js"></script>
         <script src="js/date-time.js"></script>
         <script src="js/name.js"></script>
         <script src="js/layout-control.js"></script>
+        <script src="js/todo.js"></script>
     </body>
 </html>

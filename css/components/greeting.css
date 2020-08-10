@@ -9,7 +9,7 @@
     transition: background-color 0.2s ease-in-out;
 }
 
-.greeting__edit-icon {
+.greeting img {
     position: absolute;
     right: 15px;
     width: 30px;
@@ -24,7 +24,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.greeting:hover .greeting__edit-icon {
+.greeting:hover img {
     opacity: 1;
 }
 

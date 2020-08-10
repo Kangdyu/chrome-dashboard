@@ -19,6 +19,7 @@ main {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
+    transition: all 1s ease-in-out;
 }
 
 .date-container {
