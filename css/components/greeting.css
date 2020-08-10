@@ -4,44 +4,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    transition: background-color 0.2s ease-in-out;
 }
 
-.greeting__edit-icon {
+.greeting img {
     position: absolute;
     right: 15px;
     width: 30px;
     height: 30px;
-    display: none;
-}
-
-@keyframes hoverBgOpacity {
-    from {
-        background-color: rgba(255, 255, 255, 0);
-    }
-    to {
-        background-color: rgba(255, 255, 255, 0.2);
-    }
-}
-
-@keyframes hoverIconOpacity {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    fill: white;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .greeting:hover {
-    animation: hoverBgOpacity 0.3s ease-in-out;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.greeting:hover .greeting__edit-icon {
-    display: inline;
-    animation: hoverIconOpacity 0.3s ease-in-out;
+.greeting:hover img {
+    opacity: 1;
 }
 
 .greeting__text {

@@ -1,30 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400;600;900&family=Noto+Sans+KR:wght@100;400;700;900&display=swap");
 @import "reset.css";
 @import "variables.css";
+@import "components/header.css";
 @import "components/date-time.css";
 @import "components/name-input.css";
 @import "components/greeting.css";
+@import "components/calendar.css";
+@import "components/todo-list.css";
 
 body {
     font-family: "Inconsolata", "Noto Sans KR", sans-serif;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 100px 1fr 100px;
 }
 
 main {
-    height: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    transition: all 1s ease-in-out;
+}
+
+.date-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-container {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 footer {
-    height: 30px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    padding: 10px 0;
     color: white;
 }
 

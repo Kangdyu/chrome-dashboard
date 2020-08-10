@@ -1,0 +1,22 @@
+.calendar {
+    width: 70%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: white;
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+    padding: 20px;
+}
+
+.calendar__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.3);
+    font-weight: 600;
+    font-size: 40px;
+}

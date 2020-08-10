@@ -7,31 +7,72 @@
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
+        <header>
+            <button class="calendar-icon">
+                <img src="images/icons/calendar.svg" />
+            </button>
+            <button class="todo-icon">
+                <img src="images/icons/list.svg" />
+            </button>
+        </header>
         <main>
-            <div class="date">
-                <span class="date__text js-date"></span>
+            <div class="date-container">
+                <div class="date">
+                    <span class="date__text js-date"></span>
+                </div>
+                <div class="clock">
+                    <span class="clock__text js-clock"></span>
+                </div>
+                <form class="form-name js-form">
+                    <input
+                        class="form-name__input"
+                        type="text"
+                        placeholder="Enter your name"
+                    />
+                </form>
+                <div class="greeting js-greeting hidden">
+                    <img src="images/icons/edit-outline-white.svg" />
+                    <span class="greeting__text"></span>
+                </div>
             </div>
-            <div class="clock">
-                <span class="clock__text js-clock"></span>
-            </div>
-            <form class="form-name js-form">
-                <input
-                    class="form-name__input"
-                    type="text"
-                    placeholder="Enter your name"
-                />
-            </form>
-            <div class="greeting js-greeting">
-                <img
-                    class="greeting__edit-icon"
-                    src="images/icons/edit-outline.svg"
-                />
-                <span class="greeting__text"></span>
+            <div class="menu-container hidden">
+                <div class="calendar">
+                    <div class="calendar__header">Calendar</div>
+                </div>
             </div>
         </main>
+        <nav class="todo">
+            <div class="todo-header">
+                <span class="todo-header__text">
+                    TO-DO LIST
+                </span>
+                <form class="todo-form">
+                    <input type="text" placeholder="Enter new to-do" />
+                    <button>
+                        <img src="images/icons/plus-outline.svg" />
+                    </button>
+                </form>
+            </div>
+            <div class="todo-list">
+                <div class="todo-pending">
+                    <div class="todo-pending__title">
+                        <span>Ongoing</span>
+                    </div>
+                    <ul class="todo-pending__list"></ul>
+                </div>
+                <div class="todo-finished">
+                    <div class="todo-finished__title">
+                        <span>Finished</span>
+                    </div>
+                    <ul class="todo-finished__list"></ul>
+                </div>
+            </div>
+        </nav>
         <footer><address>2020 ⓒ Kangdyu</address></footer>
         <script src="js/background.js"></script>
         <script src="js/date-time.js"></script>
         <script src="js/name.js"></script>
+        <script src="js/layout-control.js"></script>
+        <script src="js/todo.js"></script>
     </body>
 </html>
