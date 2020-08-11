@@ -1,22 +1,67 @@
 .calendar {
-    width: 70%;
-    height: 80%;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    box-sizing: border-box;
-    color: white;
+    position: absolute;
+    left: 0;
+    width: 25vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
     display: grid;
-    grid-template-rows: 1fr 8fr;
-    padding: 20px;
+    grid-template-rows: 1fr 12fr;
+    color: white;
 }
 
-.calendar__header {
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 30px;
+    font-weight: 200;
+}
+
+.calendar-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-month {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom: 1px solid rgb(255, 255, 255, 0.3);
-    font-weight: 600;
-    font-size: 40px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    padding: 20px 0;
+    font-size: 28px;
+    font-weight: 200;
+}
+
+.calendar-grid {
+    padding-top: 20px;
+    display: grid;
+    height: 50%;
+    grid-template-columns: repeat(7, 13%);
+    grid-template-rows: 7% repeat(6, 12%);
+    justify-content: center;
+}
+
+.calendar-grid div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    color: black;
+}
+
+.calendar-grid .calendar-day {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    color: white;
+    font-weight: 800;
+}
+
+.calendar-grid .calendar-day:first-child {
+    background-color: rgba(231, 76, 60, 1);
+}
+
+.calendar-grid .calendar-day:nth-child(7) {
+    background-color: rgba(52, 152, 219, 1);
 }

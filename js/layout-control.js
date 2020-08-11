@@ -4,7 +4,6 @@ const LOCAL_STORAGE_CALENDAR_SEL = "calendar_selected";
 init();
 
 function init() {
-    const menuContainer = document.querySelector("nav");
     const calendarDiv = document.querySelector(".calendar");
     const toDoListDiv = document.querySelector(".todo");
     const calendarBtn = document.querySelector(".calendar-icon");
@@ -12,39 +11,21 @@ function init() {
 
     calendarBtn.addEventListener("click", () => {
         calendarBtn.classList.toggle("selected");
-        toDoListBtn.classList.remove("selected");
+        //toDoListBtn.classList.remove("selected");
         saveStatus(calendarBtn, toDoListBtn);
 
-        drawLayout(
-            menuContainer,
-            calendarBtn,
-            toDoListBtn,
-            calendarDiv,
-            toDoListDiv
-        );
+        drawLayout(calendarBtn, toDoListBtn, calendarDiv, toDoListDiv);
     });
     toDoListBtn.addEventListener("click", () => {
         toDoListBtn.classList.toggle("selected");
-        calendarBtn.classList.remove("selected");
+        //calendarBtn.classList.remove("selected");
         saveStatus(calendarBtn, toDoListBtn);
 
-        drawLayout(
-            menuContainer,
-            calendarBtn,
-            toDoListBtn,
-            calendarDiv,
-            toDoListDiv
-        );
+        drawLayout(calendarBtn, toDoListBtn, calendarDiv, toDoListDiv);
     });
 
     loadStatus(calendarBtn, toDoListBtn);
-    drawLayout(
-        menuContainer,
-        calendarBtn,
-        toDoListBtn,
-        calendarDiv,
-        toDoListDiv
-    );
+    drawLayout(calendarBtn, toDoListBtn, calendarDiv, toDoListDiv);
 }
 
 function saveStatus(cBtn, tBtn) {
@@ -66,19 +47,11 @@ function loadStatus(cBtn, tBtn) {
     if (isTodoSel === "true") tBtn.classList.add("selected");
 }
 
-function drawLayout(mCon, cBtn, tBtn, cDiv, tDiv) {
-    if (
-        !cBtn.classList.contains("selected") &&
-        !tBtn.classList.contains("selected")
-    ) {
-        mCon.classList.add("hidden");
-    } else if (cBtn.classList.contains("selected")) {
-        mCon.classList.remove("hidden");
-        cDiv.classList.remove("hidden");
-        tDiv.classList.add("hidden");
-    } else if (tBtn.classList.contains("selected")) {
-        mCon.classList.remove("hidden");
-        tDiv.classList.remove("hidden");
-        cDiv.classList.add("hidden");
-    }
+function drawLayout(cBtn, tBtn, cDiv, tDiv) {
+    cBtn.classList.contains("selected")
+        ? cDiv.classList.remove("hidden")
+        : cDiv.classList.add("hidden");
+    tBtn.classList.contains("selected")
+        ? tDiv.classList.remove("hidden")
+        : tDiv.classList.add("hidden");
 }
