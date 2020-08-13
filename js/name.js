@@ -9,6 +9,7 @@ function handleSubmit(event) {
     event.preventDefault();
     localStorage.setItem(LOCAL_STORAGE_NAME, nameInput.value);
     greeting(nameInput.value);
+    nameInput.value = "";
 }
 
 function handleFocusOut() {

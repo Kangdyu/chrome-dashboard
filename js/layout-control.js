@@ -11,14 +11,12 @@ function init() {
 
     calendarBtn.addEventListener("click", () => {
         calendarBtn.classList.toggle("selected");
-        //toDoListBtn.classList.remove("selected");
         saveStatus(calendarBtn, toDoListBtn);
 
         drawLayout(calendarBtn, toDoListBtn, calendarDiv, toDoListDiv);
     });
     toDoListBtn.addEventListener("click", () => {
         toDoListBtn.classList.toggle("selected");
-        //calendarBtn.classList.remove("selected");
         saveStatus(calendarBtn, toDoListBtn);
 
         drawLayout(calendarBtn, toDoListBtn, calendarDiv, toDoListDiv);
@@ -49,9 +47,9 @@ function loadStatus(cBtn, tBtn) {
 
 function drawLayout(cBtn, tBtn, cDiv, tDiv) {
     cBtn.classList.contains("selected")
-        ? cDiv.classList.remove("hidden")
-        : cDiv.classList.add("hidden");
+        ? cDiv.classList.add("open")
+        : cDiv.classList.remove("open");
     tBtn.classList.contains("selected")
-        ? tDiv.classList.remove("hidden")
-        : tDiv.classList.add("hidden");
+        ? tDiv.classList.add("open")
+        : tDiv.classList.remove("open");
 }
