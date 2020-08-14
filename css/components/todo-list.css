@@ -108,11 +108,61 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 20px;
+    padding-left: 10px;
     padding-right: 7px;
     border-radius: 50px;
-    background-color: rgba(255, 255, 255, 0.3);
     background-color: #2f3542;
+    overflow: hidden;
+}
+
+.todo-text-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    padding: 5px 10px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.todo-text-container img {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    opacity: 0.2;
+    transition: all 0.2s ease-in-out;
+}
+
+.todo-text-container:hover {
+    background-color: #1c1f27;
+}
+
+.todo-text-container:hover img {
+    opacity: 1;
+}
+
+.todo-item-form {
+    width: 80%;
+}
+
+.todo-item-form input {
+    font-family: "Inconsolata", "Noto Sans KR", sans-serif;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 16px;
+    overflow: visible;
+}
+
+.todo-item-form input:focus {
+    background: #1c1f27;
+    border-radius: 50px;
 }
 
 .todo-button {

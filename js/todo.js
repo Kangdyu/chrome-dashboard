@@ -56,6 +56,30 @@ function handleStatus(event) {
     }
 }
 
+function handleModify(event) {
+    const li = event.currentTarget.parentNode;
+    const div = event.currentTarget;
+    const text = event.currentTarget.querySelector(".todo-text");
+    const form = li.querySelector(".todo-item-form");
+    const input = form.querySelector("input");
+
+    div.classList.add("hidden");
+    form.classList.remove("hidden");
+    input.value = event.currentTarget.innerText;
+    input.focus();
+    input.addEventListener("blur", () => {
+        form.classList.add("hidden");
+        div.classList.remove("hidden");
+    });
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        text.innerText = input.value;
+        modifyLocalStorage(li.id, input.value);
+        form.classList.add("hidden");
+        div.classList.remove("hidden");
+    });
+}
+
 /* =============== local storage functions =============== */
 function addToLocalStorage(status, arr, text) {
     const time = new Date();
@@ -74,6 +98,18 @@ function removeFromLocalStorage(status, arr, li) {
     const target = arr.findIndex((item) => item.id == li.id);
     arr.splice(target, 1);
     li.parentNode.removeChild(li);
+    updateLocalStorage(status);
+}
+
+function modifyLocalStorage(id, text) {
+    let target;
+    let status;
+    if ((target = pendingArr.find((item) => item.id == id))) {
+        status = "pending";
+    } else if ((target = finishedArr.find((item) => item.id == id))) {
+        status = "finished";
+    }
+    target.text = text;
     updateLocalStorage(status);
 }
 
@@ -111,7 +147,11 @@ function loadLists() {
 
 function printList(status, list) {
     const todo = document.createElement("li");
+    const todoItemForm = document.createElement("form");
+    const todoItemInput = document.createElement("input");
+    const todoTextDiv = document.createElement("div");
     const todoText = document.createElement("span");
+    const todoModifyIcon = document.createElement("img");
     const todoBtns = document.createElement("span");
     const deleteBtn = document.createElement("img");
     const statusBtn = document.createElement("img");
@@ -119,19 +159,29 @@ function printList(status, list) {
     todo.id = list.id;
     todoText.innerText = list.text;
 
+    todoItemForm.classList.add("todo-item-form");
+    todoItemForm.classList.add("hidden");
+    todoTextDiv.classList.add("todo-text-container");
     todoText.classList.add("todo-text");
     todoBtns.classList.add("todo-button");
     deleteBtn.classList.add("todo-button__delete");
     statusBtn.classList.add("todo-button__status");
 
+    todoItemInput.setAttribute("type", "text");
+    todoModifyIcon.setAttribute("src", "images/icons/edit-outline-white.svg");
     deleteBtn.setAttribute("src", "images/icons/close-outline.svg");
 
+    todoTextDiv.addEventListener("click", handleModify);
     deleteBtn.addEventListener("click", handleDelete);
     statusBtn.addEventListener("click", handleStatus);
 
+    todoItemForm.appendChild(todoItemInput);
+    todoTextDiv.appendChild(todoText);
+    todoTextDiv.appendChild(todoModifyIcon);
     todoBtns.appendChild(statusBtn);
     todoBtns.appendChild(deleteBtn);
-    todo.appendChild(todoText);
+    todo.appendChild(todoItemForm);
+    todo.appendChild(todoTextDiv);
     todo.appendChild(todoBtns);
 
     if (status === "pending") {
