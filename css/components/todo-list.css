@@ -29,19 +29,22 @@
     position: relative;
     width: 50%;
     height: 40px;
+    background-color: white;
+    border-radius: 50px;
 }
 
 .todo-form input {
     font-family: "Inconsolata", "Noto Sans KR", sans-serif;
     font-weight: 400;
-    width: 100%;
+    width: 90%;
     height: 100%;
-    border-radius: 50px;
     border: none;
     outline: none;
     padding: 0 20px;
     box-sizing: border-box;
+    background: none;
     font-size: 20px;
+    color: black;
 }
 
 .todo-form button {
@@ -69,7 +72,7 @@
 }
 
 .todo-form button:active {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .todo-list {
@@ -105,34 +108,45 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 7px;
     border-radius: 50px;
     background-color: rgba(255, 255, 255, 0.3);
+    background-color: #2f3542;
 }
 
 .todo-button {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #57606f;
+    border-radius: 30px;
+    padding: 5px;
 }
 
 .todo-button__status,
 .todo-button__delete {
-    padding: 3px;
     width: 24px;
     height: 24px;
     outline: none;
     border: none;
     border-radius: 50%;
+    padding: 2px;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .todo-button__status {
     margin-right: 10px;
+}
+
+.todo-button__status:hover {
     background-color: rgba(46, 204, 113, 1);
 }
 
-.todo-finished .todo-button__status {
+.todo-finished .todo-button__status:hover {
     background-color: rgba(241, 196, 15, 1);
 }
-.todo-button__delete {
+.todo-button__delete:hover {
     background-color: rgba(231, 76, 60, 1);
 }

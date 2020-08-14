@@ -19,6 +19,9 @@ function init() {
 /* ====================== handlers ====================== */
 function handleInput(event) {
     event.preventDefault();
+    if (todoInput.value.trim() === "") {
+        return;
+    }
     addToLocalStorage("pending", pendingArr, todoInput.value);
     todoInput.value = "";
 }
