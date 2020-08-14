@@ -1,5 +1,4 @@
-const LOCAL_STORAGE_TODO_SEL = "todo_selected";
-const LOCAL_STORAGE_CALENDAR_SEL = "calendar_selected";
+const LOCAL_STORAGE_MENU_SEL = "menu_selected";
 
 init();
 
@@ -27,22 +26,20 @@ function init() {
 }
 
 function saveStatus(cBtn, tBtn) {
-    localStorage.setItem(
-        LOCAL_STORAGE_CALENDAR_SEL,
-        cBtn.classList.contains("selected")
-    );
-    localStorage.setItem(
-        LOCAL_STORAGE_TODO_SEL,
-        tBtn.classList.contains("selected")
-    );
+    const status = {
+        calendar: cBtn.classList.contains("selected"),
+        todo: tBtn.classList.contains("selected"),
+    };
+    localStorage.setItem(LOCAL_STORAGE_MENU_SEL, JSON.stringify(status));
 }
 
 function loadStatus(cBtn, tBtn) {
-    const isCalendarSel = localStorage.getItem(LOCAL_STORAGE_CALENDAR_SEL);
-    const isTodoSel = localStorage.getItem(LOCAL_STORAGE_TODO_SEL);
+    const statusJSON = localStorage.getItem(LOCAL_STORAGE_MENU_SEL);
+    if (!statusJSON) return;
+    const status = JSON.parse(statusJSON);
 
-    if (isCalendarSel === "true") cBtn.classList.add("selected");
-    if (isTodoSel === "true") tBtn.classList.add("selected");
+    if (status.calendar) cBtn.classList.add("selected");
+    if (status.todo) tBtn.classList.add("selected");
 }
 
 function drawLayout(cBtn, tBtn, cDiv, tDiv) {
