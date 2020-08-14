@@ -7,6 +7,13 @@
     display: grid;
     grid-template-rows: 1fr 12fr;
     color: white;
+
+    transform: translate(-25vw, 0);
+    transition: all 0.5s ease-in-out;
+}
+
+.calendar.open {
+    transform: translate(0, 0);
 }
 
 .calendar-header {
@@ -53,7 +60,7 @@
 }
 
 .calendar-grid {
-    padding-top: 20px;
+    padding-top: 40px;
     display: grid;
     height: 50%;
     grid-template-columns: repeat(7, 13%);
@@ -69,22 +76,21 @@
 }
 
 .calendar-grid .calendar-day-of-the-week {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
     color: white;
     font-weight: 800;
-}
-
-.calendar-grid .calendar-day-of-the-week:first-child {
-    background-color: rgba(231, 76, 60, 1);
-}
-
-.calendar-grid .calendar-day-of-the-week:nth-child(7) {
-    background-color: rgba(52, 152, 219, 1);
+    border-bottom: 1px solid white;
 }
 
 .calendar-day {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.calendar-day:nth-child(7n + 1) {
+    color: rgba(231, 76, 60, 1);
+}
+
+.calendar-day:nth-child(7n + 7) {
+    color: rgba(52, 152, 219, 1);
 }

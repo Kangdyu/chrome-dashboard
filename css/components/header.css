@@ -14,13 +14,19 @@ header {
     width: 60px;
     height: 60px;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(223, 228, 234, 1);
     margin-right: 20px;
+    border: 2px solid white;
+}
+
+.calendar-icon:hover,
+.todo-icon:hover {
+    background-color: rgba(164, 176, 190, 1);
 }
 
 .calendar-icon:active,
 .todo-icon:active {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(116, 125, 140, 1);
 }
 
 .calendar-icon img,
@@ -29,12 +35,15 @@ header {
     height: 30px;
 }
 
-.calendar-icon:hover img,
-.todo-icon:hover img {
-    width: 40px;
-    height: 40px;
+.selected {
+    /* background-color: rgba(46, 204, 113, 1); */
+    background-color: rgba(116, 125, 140, 1);
 }
 
-.selected {
-    background-color: rgba(46, 204, 113, 1);
+.selected:hover {
+    background-color: rgba(87, 96, 111, 1);
+}
+
+.selected:active {
+    background-color: rgba(47, 53, 66, 1);
 }

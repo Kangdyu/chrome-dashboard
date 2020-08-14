@@ -1,4 +1,4 @@
-const IMG_COUNT = 5;
+const IMG_COUNT = 3;
 
 function randomNumGenerator(max) {
     return Math.ceil(Math.random() * max);

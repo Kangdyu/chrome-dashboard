@@ -15,7 +15,7 @@
     width: 30px;
     height: 30px;
     fill: white;
-    opacity: 0;
+    opacity: 0.2;
     transition: opacity 0.2s ease-in-out;
 }
 
