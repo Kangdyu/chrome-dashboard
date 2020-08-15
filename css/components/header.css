@@ -15,8 +15,11 @@ header {
     height: 60px;
     cursor: pointer;
     background-color: rgba(223, 228, 234, 1);
-    margin-right: 20px;
     border: 2px solid white;
+}
+
+.calendar-icon {
+    margin-right: 20px;
 }
 
 .calendar-icon:hover,

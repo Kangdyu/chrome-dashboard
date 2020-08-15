@@ -13,6 +13,7 @@ https://kangdyu.github.io/chrome-dashboard
 - [x] Name Input
 - [x] Name Change
 - [x] Greeting
+- [x] Weather
   
 - ### TO-DO List
   - [x] Add TO-DO Item

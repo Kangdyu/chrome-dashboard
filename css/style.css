@@ -7,6 +7,7 @@
 @import "components/greeting.css";
 @import "components/calendar.css";
 @import "components/todo-list.css";
+@import "components/weather.css";
 
 body {
     font-family: "Inconsolata", "Noto Sans KR", sans-serif;
@@ -19,9 +20,10 @@ body {
 }
 
 main {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     transition: all 1s ease-in-out;
 }
 
@@ -40,9 +42,9 @@ main {
 
 footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-end;
-    padding: 10px 0;
+    padding: 20px 20px;
     color: white;
 }
 
@@ -57,4 +59,19 @@ footer {
 
 .hidden {
     display: none;
+}
+
+.weather {
+    flex: 1;
+}
+
+.anchors {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.anchors img {
+    width: 40px;
+    height: 40px;
 }
