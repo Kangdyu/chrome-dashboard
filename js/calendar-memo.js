@@ -47,7 +47,10 @@ let calendarMemo = {
         this.memo.set(date.toString(), memoList);
         this.updateLocalStorage();
         this.createMemo(id, text);
-        calendar.drawMarker(date, "white");
+
+        if (calendar.doesCalendarInclude(date)) {
+            calendar.drawMarker(date, "white");
+        }
     },
     loadMemoAll() {
         const memoJSON = localStorage.getItem(LOCAL_STORAGE_CAL_MEMO);
