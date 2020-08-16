@@ -18,14 +18,14 @@ https://kangdyu.github.io/chrome-dashboard
 - [x] Name Change
 - [x] Greeting
 - [x] Weather
+- [x] Save Menu Open Status
   
 - ### TO-DO List
   - [x] Add TO-DO Item
   - [x] Delete TO-DO Item
   - [x] Modify TO-DO Item
   - [x] Ongoing List ⇆ Finished List
-  - [ ] Change Item Order in List
 
 - ### Calendar
   - [x] Full Calendar
-  - [ ] Memo
+  - [x] Memo

@@ -9,6 +9,14 @@ function CalendarDate(year, month, day, index) {
     };
 }
 
+function parseToCalendarDate(str) {
+    const year = str.slice(0, 4);
+    const month = str.slice(4, 6);
+    const day = str.slice(6, 8);
+
+    return new CalendarDate(year, month, day);
+}
+
 let calendar = {
     year: null,
     month: null,
@@ -53,24 +61,17 @@ let calendar = {
         }
         this.setCalendarRange();
     },
-    updateSelectedIndex() {
-        if (!this.doesCalendarInclude(this.selected)) return;
-
-        if (this.month === this.selected.month) {
-            this.selected.index = this.dayIndex[this.selected.day - 1];
+    getDateIndex(date) {
+        if (this.month === +date.month) {
+            return this.dayIndex[date.day - 1];
         } else {
             const targetClass =
-                this.month > this.selected.month ? "prev-day" : "next-day";
-            this.selected.index = Array.from(
-                this.docElements.dayDivs
-            ).findIndex(
+                this.month > +date.month ? "prev-day" : "next-day";
+            return Array.from(this.docElements.dayDivs).findIndex(
                 (div) =>
                     div.classList.contains(targetClass) &&
-                    div.innerText == this.selected.day
+                    +div.innerText === +date.day
             );
-        }
-        if (this.doesCalendarInclude(this.selected)) {
-            this.drawBorder(this.selected, "white");
         }
     },
     clearBorder() {
@@ -83,6 +84,11 @@ let calendar = {
             div.style.backgroundColor = "";
         });
     },
+    deleteMemoMarkers() {
+        this.docElements.dayDivs.forEach((div) => {
+            div.querySelector(".calendar-marker")?.remove();
+        });
+    },
     drawBorder(date, color) {
         const dayDivs = this.docElements.dayDivs;
         dayDivs[date.index].style.border = `1px solid ${color}`;
@@ -92,13 +98,24 @@ let calendar = {
         const circle = document.createElement("div");
         circle.className = "calendar-marker";
         circle.style.position = "absolute";
-        circle.style.top = "5px";
-        circle.style.right = "5px";
+        circle.style.top = "10px";
+        circle.style.right = "10px";
         circle.style.width = "5px";
         circle.style.height = "5px";
         circle.style.borderRadius = "50%";
         circle.style.backgroundColor = color;
         dayDivs[date.index].appendChild(circle);
+    },
+    drawMemoMarkers(dates) {
+        this.deleteMemoMarkers();
+        for (let date of dates) {
+            if (this.doesCalendarInclude(date)) {
+                console.log(date);
+                date.index = this.getDateIndex(date);
+                console.log(date.index);
+                this.drawMarker(date, "white");
+            }
+        }
     },
     paintDiv(date, color) {
         const dayDivs = this.docElements.dayDivs;
@@ -196,12 +213,20 @@ let calendar = {
         this.docElements.prevBtn.addEventListener("click", () => {
             this.prevMonth();
             this.draw();
-            this.updateSelectedIndex();
+            this.selected.index = this.getDateIndex(this.selected);
+            if (this.doesCalendarInclude(this.selected)) {
+                this.drawBorder(this.selected, "white");
+            }
+            this.drawMemoMarkers(calendarMemo.getMemoDays());
         });
         this.docElements.nextBtn.addEventListener("click", () => {
             this.nextMonth();
             this.draw();
-            this.updateSelectedIndex();
+            this.selected.index = this.getDateIndex(this.selected);
+            if (this.doesCalendarInclude(this.selected)) {
+                this.drawBorder(this.selected, "white");
+            }
+            this.drawMemoMarkers(calendarMemo.getMemoDays());
         });
         this.docElements.dayDivs.forEach((day) => {
             day.addEventListener("click", (event) => {

@@ -13,7 +13,9 @@ let calendarMemo = {
         "Saturday",
     ],
     getMemoDays() {
-        return Array.from(this.memo.keys());
+        return Array.from(this.memo.keys()).map((day) =>
+            parseToCalendarDate(day)
+        );
     },
     setDate(date) {
         const dow = new Date(date.year, date.month - 1, date.day).getDay();
@@ -45,6 +47,7 @@ let calendarMemo = {
         this.memo.set(date.toString(), memoList);
         this.updateLocalStorage();
         this.createMemo(id, text);
+        calendar.drawMarker(date, "white");
     },
     loadMemoAll() {
         const memoJSON = localStorage.getItem(LOCAL_STORAGE_CAL_MEMO);
@@ -52,6 +55,8 @@ let calendarMemo = {
 
         const memoObj = JSON.parse(memoJSON);
         this.memo = new Map(Object.entries(memoObj));
+
+        calendar.drawMemoMarkers(this.getMemoDays());
     },
     loadMemo(date) {
         const memos = this.memo.get(date.toString());
@@ -89,6 +94,7 @@ let calendarMemo = {
         }
         this.updateLocalStorage();
         item.remove();
+        this.loadMemoAll();
     },
     setHandlers() {
         this.docElements.inputForm.addEventListener("submit", (event) => {
