@@ -1,0 +1,19 @@
+.weather {
+    font-family: "Noto Sans KR", sans-serif;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    column-gap: 10px;
+    color: white;
+}
+
+.weather-icon {
+    grid-row: span 2;
+}
+
+.weather-city {
+    font-size: 13px;
+}
+
+.weather-temp {
+    font-size: 20px;
+}
