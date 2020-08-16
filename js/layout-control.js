@@ -9,13 +9,13 @@ function init() {
     const toDoListBtn = document.querySelector(".todo-icon");
 
     calendarBtn.addEventListener("click", () => {
-        calendarBtn.classList.toggle("selected");
+        calendarBtn.classList.toggle("activated");
         saveStatus(calendarBtn, toDoListBtn);
 
         drawLayout(calendarBtn, toDoListBtn, calendarDiv, toDoListDiv);
     });
     toDoListBtn.addEventListener("click", () => {
-        toDoListBtn.classList.toggle("selected");
+        toDoListBtn.classList.toggle("activated");
         saveStatus(calendarBtn, toDoListBtn);
 
         drawLayout(calendarBtn, toDoListBtn, calendarDiv, toDoListDiv);
@@ -27,8 +27,8 @@ function init() {
 
 function saveStatus(cBtn, tBtn) {
     const status = {
-        calendar: cBtn.classList.contains("selected"),
-        todo: tBtn.classList.contains("selected"),
+        calendar: cBtn.classList.contains("activated"),
+        todo: tBtn.classList.contains("activated"),
     };
     localStorage.setItem(LOCAL_STORAGE_MENU_SEL, JSON.stringify(status));
 }
@@ -38,15 +38,15 @@ function loadStatus(cBtn, tBtn) {
     if (!statusJSON) return;
     const status = JSON.parse(statusJSON);
 
-    if (status.calendar) cBtn.classList.add("selected");
-    if (status.todo) tBtn.classList.add("selected");
+    if (status.calendar) cBtn.classList.add("activated");
+    if (status.todo) tBtn.classList.add("activated");
 }
 
 function drawLayout(cBtn, tBtn, cDiv, tDiv) {
-    cBtn.classList.contains("selected")
+    cBtn.classList.contains("activated")
         ? cDiv.classList.add("open")
         : cDiv.classList.remove("open");
-    tBtn.classList.contains("selected")
+    tBtn.classList.contains("activated")
         ? tDiv.classList.add("open")
         : tDiv.classList.remove("open");
 }

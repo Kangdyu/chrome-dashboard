@@ -4,6 +4,10 @@ Chrome new tab dashboard page (Web development practice ^~^)
 
 https://kangdyu.github.io/chrome-dashboard
 
+- Supports desktop, full screen (page can be broken in small window size)
+
+- Tested in Chromium browsers
+
 ---
 
 ## Features

@@ -38,15 +38,14 @@ header {
     height: 30px;
 }
 
-.selected {
-    /* background-color: rgba(46, 204, 113, 1); */
+.activated {
     background-color: rgba(116, 125, 140, 1);
 }
 
-.selected:hover {
+.activated:hover {
     background-color: rgba(87, 96, 111, 1);
 }
 
-.selected:active {
+.activated:active {
     background-color: rgba(47, 53, 66, 1);
 }
