@@ -110,9 +110,7 @@ let calendar = {
         this.deleteMemoMarkers();
         for (let date of dates) {
             if (this.doesCalendarInclude(date)) {
-                console.log(date);
                 date.index = this.getDateIndex(date);
-                console.log(date.index);
                 this.drawMarker(date, "white");
             }
         }
