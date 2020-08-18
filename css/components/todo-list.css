@@ -100,7 +100,29 @@
     grid-auto-rows: 50px;
     gap: 10px;
     padding: 20px;
-    overflow: scroll;
+    overflow-y: scroll;
+}
+
+.todo-pending__list::-webkit-scrollbar,
+.todo-finished__list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.todo-pending__list::-webkit-scrollbar-track,
+.todo-finished__list::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.todo-pending__list::-webkit-scrollbar-thumb,
+.todo-finished__list::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: #2f3542;
+}
+
+.todo-pending__list::-webkit-scrollbar-button,
+.todo-finished__list::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
 }
 
 .todo-pending__list li,
